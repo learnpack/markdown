@@ -42,12 +42,16 @@ module.exports = {
   },
   devtool: 'source-map',
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx'],
+    alias: {
+      'react': path.resolve(__dirname, './node_modules/react'),
+      'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
+    },
   },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: 'index.js',
-    library: '@breathecode/ui-components',
+    library: '@learnpack/markdown',
     globalObject: 'typeof self !== \'undefined\' ? self : this',
     libraryTarget: 'umd'
   },
@@ -65,5 +69,20 @@ module.exports = {
     ],
   devServer: {
     contentBase: './dist'
+  },
+  externals: {
+    // Don't bundle react or react-dom      
+    react: {
+      commonjs: "react",
+      commonjs2: "react",
+      amd: "React",
+      root: "React"
+    },
+    "react-dom": {
+      commonjs: "react-dom",
+      commonjs2: "react-dom",
+      amd: "ReactDOM",
+      root: "ReactDOM"
+    }
   }
 };

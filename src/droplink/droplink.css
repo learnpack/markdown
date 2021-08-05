@@ -1,8 +1,0 @@
-.bcdroplink a{ background-image: none; }
-
-.bcdroplink.dropdown{
-    display: inline;
-}
-.bcdroplink.dropdown .dropdown-menu a{
-    cursor: pointer;
-}
